@@ -73,7 +73,7 @@ Just run 'usc-game' or 'usc-game_Debug' from within the 'bin' folder.
 
 ### Windows:
 It is not required to build from source. A download link to a pre-built copy of the game is located at the beginning of this README.
-The recommended Visual Studio version is 2017, if you want to use a different version then you
+The recommended Visual Studio version is 2022, if you want to use a different version then you
 will need to edit the 'GenerateWin64ProjectFiles.bat' if you want to follow the guide below.
 
 0. Clone the project using `git` and then run `git submodule update --init --recursive` to download the required submodules.
