@@ -16,6 +16,8 @@ enum SortType
 	ARTIST_DESC,
 	EFFECTOR_ASC,
 	EFFECTOR_DESC,
+	LEVEL_ASC,
+	LEVEL_DESC,
 	SORT_COUNT,
 };
 
@@ -103,6 +105,18 @@ class EffectorSort : public TitleSort
 		{ 
 			return m_dir? SortType::EFFECTOR_DESC : SortType::EFFECTOR_ASC;
 		};
+};
+
+class LevelSort : public TitleSort
+{
+public:
+	LevelSort(String name, bool dir) : TitleSort(name, dir) {};
+	void SortInplace(Vector<uint32>& vec, const Map<int32,
+		SongSelectIndex>& collection) override;
+	SortType GetType() const override
+	{
+		return m_dir ? SortType::LEVEL_DESC : SortType::LEVEL_ASC;
+	};
 };
 
 class ClearMarkSort : public TitleSort

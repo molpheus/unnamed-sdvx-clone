@@ -163,6 +163,25 @@ void EffectorSort::SortInplace(Vector<uint32>& vec, const Map<int32,
 	});
 }
 
+void LevelSort::SortInplace(Vector<uint32>& vec, const Map<int32,
+	SongSelectIndex>& collection)
+{
+	std::sort(vec.begin(), vec.end(),
+		[&](uint32 ia, uint32 ib) -> bool
+		{
+			const SongSelectIndex& song_a = getSongFromCollection(ia, collection);
+			const SongSelectIndex& song_b = getSongFromCollection(ib, collection);
+
+			int32 a = song_a.GetCharts()[0]->level;
+			int32 b = song_b.GetCharts()[0]->level;
+			if (a == b)
+				return CompareSongs(song_a, song_b);
+
+			bool res = a < b;
+			return m_dir ? !res : res;
+		});
+}
+
 void ClearMarkSort::SortInplace(Vector<uint32>& vec, const Map<int32, 
 		SongSelectIndex>& collection)
 {
