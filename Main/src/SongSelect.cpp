@@ -844,6 +844,8 @@ public:
 			m_sorts.Add(new ArtistSort("Artist v", true));
 			m_sorts.Add(new EffectorSort("Effector ^", false));
 			m_sorts.Add(new EffectorSort("Effector v", true));
+			m_sorts.Add(new LevelSort("Level ^", false));
+			m_sorts.Add(new LevelSort("Level v", true));
 		}
 
 		CheckedLoad(m_lua = g_application->LoadScript("songselect/sortwheel"));
